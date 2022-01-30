@@ -1,5 +1,10 @@
 package CS380.ch1.labOne;
 
+/**
+ * Date: Jan 30, 2022
+ * @author Zach Healy and John Stout
+ */
+
 import java.util.Iterator;
 import java.util.ListIterator;
 
