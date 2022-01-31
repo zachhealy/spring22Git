@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CS380.ch1.labOne;
+package CS300.ch1.labOne;
 
 /**
  * Java 8 brought to static and default methods in interfaces

@@ -1,4 +1,4 @@
-package CS380.ch1.labOne;
+package CS300.ch1.labOne;
 
 /**
  * Date: Jan 30, 2022
