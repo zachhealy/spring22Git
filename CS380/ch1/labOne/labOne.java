@@ -5,7 +5,7 @@ package CS380.ch1.labOne;
  * @author Zach Healy and John Stout
  */
 
-public class DoubleLinkedList_Test {
+public class labOne {
     public static void main(String[] args) {
         
         DoublyLinkedList<String> stringTest = new DoublyLinkedList();
@@ -19,63 +19,63 @@ public class DoubleLinkedList_Test {
         intTest.add(10);
         
         //tests the toString method
-        System.out.println("Testing toString:");
+        System.out.println("toString Test:");
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests the getFirst method
-        System.out.println("Testing getFirst:");
+        System.out.println("getFirst Test:");
         System.out.println(stringTest.getFirst());
         System.out.println();
         
         //tests the getLast method
-        System.out.println("Testing getLast:");
+        System.out.println("getLast Test:");
         System.out.println(stringTest.getLast());
         System.out.println();
         
         //tests the get method
-        System.out.println("Testing get:");
+        System.out.println("get Test:");
         System.out.println(stringTest.get(1));
         System.out.println();
         
         //tests the addFirst method
-        System.out.println("Testing addFirst:");
+        System.out.println("addFirst Test:");
         stringTest.addFirst("Help");
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests the addLast method
-        System.out.println("Testing addLast:");
+        System.out.println("addLast Test:");
         stringTest.addLast("Lists");
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests the add method
-        System.out.println("Testing add:");
+        System.out.println("add Test:");
         stringTest.add(2, "Final");
         System.out.println(stringTest.toString());
         System.out.println();
-        
+       
         //tests the remove method
-        System.out.println("Testing remove:");
-        stringTest.remove(4);
+        System.out.println("remove Test:");
+        stringTest.remove(1);
         System.out.println(stringTest.toString());
         System.out.println();
-        
+       
         //tests the removeFirst method
-        System.out.println("Testing removeFirst:");
+        System.out.println("removeFirst Test:");
         stringTest.removeFirst();
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests the removeLast method
-        System.out.println("Testing removeLast:");
+        System.out.println("removeLast Test:");
         stringTest.removeLast();
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests the contains method
-        System.out.println("Testing contains:");
+        System.out.println("contains Test:");
         System.out.print("Test contains Final: ");
         System.out.println(stringTest.contains("Final"));
         System.out.print("Test contains Fish: ");
@@ -84,13 +84,13 @@ public class DoubleLinkedList_Test {
         
         //tests indexOf method
         stringTest.addLast("Final"); //Adds a second instance of "Final" to test index
-        System.out.println("Testing indexOf:");
+        System.out.println("indexOf Test:");
         System.out.print("Final has an index of: ");
         System.out.println(stringTest.indexOf("Final"));
         System.out.println();
         
         //tests lastIndexOf
-        System.out.println("Testing lastIndexOf:");
+        System.out.println("lastIndexOf Test:");
         System.out.print("Final has a last index of: ");
         System.out.println(stringTest.lastIndexOf("Final"));
         System.out.println();
@@ -100,7 +100,7 @@ public class DoubleLinkedList_Test {
         System.out.println();
         
         //tests set
-        System.out.println("Testing set:");
+        System.out.println("set Test:");
         System.out.print("List before set: ");
         System.out.println(stringTest.toString());
         stringTest.set(2, "Reset");
@@ -109,81 +109,81 @@ public class DoubleLinkedList_Test {
         System.out.println();
         
         //tests listerIterator method
-        System.out.println("Testing listerIterator: ");
+        System.out.println("listerIterator Test: ");
         stringTest.listerIterator();
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests listIterator method
-        System.out.println("Testing listIterator: ");
+        System.out.println("listIterator Test: ");
         stringTest.listIterator(1);
         System.out.println(stringTest.toString());
         System.out.println();
         
         //tests the clear method
-        System.out.println("Testing clear:");
+        System.out.println("clear Test:");
         stringTest.clear();
         System.out.println(stringTest.toString());  
         System.out.println();
         
         //tests the toString method
-        System.out.println("Testing toString:");
+        System.out.println("toString Test:");
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the getFirst method
-        System.out.println("Testing getFirst:");
+        System.out.println("getFirst Test:");
         System.out.println(intTest.getFirst());
         System.out.println();
         
         //tests the getLast method
-        System.out.println("Testing getLast:");
+        System.out.println("getLast Test:");
         System.out.println(intTest.getLast());
         System.out.println();
         
         //tests the get method
-        System.out.println("Testing get:");
+        System.out.println("get Test:");
         System.out.println(intTest.get(1));
         System.out.println();
         
         //tests the addFirst method
-        System.out.println("Testing addFirst:");
+        System.out.println("addFirst Test:");
         intTest.addFirst(4);
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the addLast method
-        System.out.println("Testing addLast:");
+        System.out.println("addLast Test:");
         intTest.addLast(5);
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the add method
-        System.out.println("Testing add:");
+        System.out.println("add Test:");
         intTest.add(2, 6);
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the remove method
-        System.out.println("Testing remove:");
-        intTest.remove(4);
+        System.out.println("remove Test:");
+        intTest.remove(1);
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the removeFirst method
-        System.out.println("Testing removeFirst:");
+        System.out.println("removeFirst Test:");
         intTest.removeFirst();
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the removeLast method
-        System.out.println("Testing removeLast:");
+        System.out.println("removeLast Test:");
         intTest.removeLast();
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests the contains method
-        System.out.println("Testing contains:");
+        System.out.println("contains Test:");
         System.out.print("Test contains 6: ");
         System.out.println(intTest.contains(6));
         System.out.print("Test contains 7: ");
@@ -192,13 +192,13 @@ public class DoubleLinkedList_Test {
         
         //tests indexOf method
         intTest.addLast(6); //Adds a second instance of 6 to test index
-        System.out.println("Testing indexOf:");
+        System.out.println("indexOf Test:");
         System.out.print("6 has an index of: ");
         System.out.println(intTest.indexOf(6));
         System.out.println();
         
         //tests lastIndexOf
-        System.out.println("Testing lastIndexOf:");
+        System.out.println("lastIndexOf Test:");
         System.out.print("6 has a last index of: ");
         System.out.println(intTest.lastIndexOf(6));
         System.out.println();
@@ -208,7 +208,7 @@ public class DoubleLinkedList_Test {
         System.out.println();
         
         //tests set
-        System.out.println("Testing set:");
+        System.out.println("set Test:");
         System.out.print("List before set: ");
         System.out.println(intTest.toString());
         intTest.set(2, 8);
@@ -217,13 +217,13 @@ public class DoubleLinkedList_Test {
         System.out.println();
         
         //tests listerIterator method
-        System.out.println("Testing listerIterator: ");
+        System.out.println("listerIterator Test: ");
         intTest.listerIterator();
         System.out.println(intTest.toString());
         System.out.println();
         
         //tests listIterator method
-        System.out.println("Testing listIterator: ");
+        System.out.println("listIterator Test: ");
         intTest.listIterator(1);
         System.out.println(intTest.toString());
         System.out.println();
@@ -233,5 +233,8 @@ public class DoubleLinkedList_Test {
         intTest.clear();
         System.out.println(intTest.toString());
         System.out.println();
+
+        //finished
+        System.out.println("Done testing!");
     }
 }

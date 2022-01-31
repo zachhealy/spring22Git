@@ -6,21 +6,23 @@ package CS380.ch1.labOne;
  */
 
 import java.util.Iterator;
-import java.util.ListIterator;
 
 
 public class DoublyLinkedList<E> implements MyList<E>{
     private Node<E> head, tail;
     private int size = 0; 
 
+    //constructor
     public DoublyLinkedList() {
     }
 
+    //constructor
     public DoublyLinkedList(E[] objects) {
         for (int i = 0; i < objects.length; i++)
             add(objects[i]); 
     }
 
+    //return first element
     public E getFirst() {
         if (size == 0)
             return null;
@@ -28,6 +30,7 @@ public class DoublyLinkedList<E> implements MyList<E>{
             return head.element;
     }  
 
+    //return last element
     public E getLast() {
         if (size == 0)
             return null;
@@ -35,16 +38,17 @@ public class DoublyLinkedList<E> implements MyList<E>{
             return tail.element;
     }
   
+    //return a certain element
     @Override
     public E get(int index) {
-        // When the index is not in the list
+        // Checks to make sure it is not last element
         if (index < 0 || index >= size)
             return null;
         
-        else if (index == 0) // When the index is the head
+        else if (index == 0)
             return getFirst();
         
-        else if (index == size - 1) // When the index is the tail
+        else if (index == size - 1)
             return getLast();
         
         else {
@@ -70,88 +74,91 @@ public class DoublyLinkedList<E> implements MyList<E>{
     }
 
 
+    //add element to first slot in DLL
     public void addFirst(E elem) {
-        Node<E> newNode = new Node<>(elem); // Create a new node
-        newNode.next = head; // Link the new node with the head (new's next)
-        head = newNode; // Head points to the new node
-        size++; // Increase list size
+        Node<E> newNode = new Node<>(elem); 
+        newNode.next = head; 
+        head = newNode; 
+        size++; 
 
-        if (tail == null) // The new node is the only node in list
+        if (tail == null) 
             tail = head;
     }
 
-    
+    //add something to the back of the DLL
     public void addLast(E elem) {
-      Node<E> newNode = new Node<>(elem); // Create a new for element elem
+      Node<E> newNode = new Node<>(elem); 
 
       if (tail == null)
-          head = tail = newNode; // The new node is the only node in list
+          head = tail = newNode; 
       else {
-          tail.next = newNode; // Link the new with the last node (tail's next)
-          newNode.previous = tail; // Link the last with the new node (new's previous)
-          tail = newNode; // Tail now points to the last node
+          tail.next = newNode; 
+          newNode.previous = tail; 
+          tail = newNode;
       }
 
       size++;
     }
 
+    //add item to DLL in certain spot
     @Override
     public void add(int index, E elem) {
-        if (index == 0) { // If the index is the head
+        if (index == 0) { 
             addFirst(elem);
         }
-        else if (index >= size) { // If the index would be at the tail
+        else if (index >= size) {
             addLast(elem);
         }
         else {
             int fromTail = size - 1 - index;
             if (fromTail < index) {
-                Node<E> current = tail; // Create pointer to cycle through the list
+                Node<E> current = tail; 
                 for (int i = size - 1; i > index; i--)
-                    current = current.previous; // Move the pointer to the previous node
+                    current = current.previous; 
                 
-                Node<E> newNode = new Node<>(elem); // Create a new node for the element elem
+                Node<E> newNode = new Node<>(elem); 
                 
-                newNode.previous = current.previous; // Links the new node to the previous node (new's previous)
-                newNode.previous.next = newNode; // Links the previous node to the next node (previous' next)
+                newNode.previous = current.previous; 
+                newNode.previous.next = newNode; 
                 
-                current.previous = newNode; // Links the current node to the new Node
-                newNode.next = current; // Links the new Node to the current Node
-                size++; // Increases the size of the list
+                current.previous = newNode; 
+                newNode.next = current; 
+                size++; 
             }
             else {
-                Node<E> current = head; // Create a pointer to cycle through the list
+                Node<E> current = head; 
                 for (int i = 1; i < index; i++)
-                  current = current.next; // Move the pointer to next Node
+                  current = current.next; 
                 
-                Node<E> newNode = new Node<>(elem); // Create a new node for the element elem
+                Node<E> newNode = new Node<>(elem); 
 
-                newNode.next = current.next; // Links the new node to the next node (new's next)
-                newNode.next.previous = newNode; // Links the next node to the previous node (next's previous)
+                newNode.next = current.next; 
+                newNode.next.previous = newNode; 
 
-                current.next = newNode; // Links the current node to the new Node
-                newNode.previous = current; // Links the new Node to the current Node
-                size++; // Increases the size of the list
+                current.next = newNode; 
+                newNode.previous = current; 
+                size++; 
             }
         }
     }
 
-
+    //remove the first element in the DLL
     public E removeFirst() {
         if (size == 0)
             return null;
         else {
-            E temp = head.element; // Store the element to return when done
-            head = head.next; // Make the next element the head
-            head.previous = null; // Remove the link from new to old head
-            size--; // Shrink list size
-            if (head == null) { // If the list is empty...
-              tail = null; // ... make the tail not point to anything
+            E temp = head.element; 
+            head = head.next; 
+            head.previous = null; 
+            size--; 
+            if (head == null) {
+              tail = null; 
             }
-            return temp; // Return the remeoved element
+            return temp; 
         }
     }
 
+    //remove the last element in the DLL
     public E removeLast() {
         if (size == 0)
             return null;
@@ -162,58 +169,59 @@ public class DoublyLinkedList<E> implements MyList<E>{
             return temp;
         }
         else {
-            Node<E> current = tail.previous; // Point to the second to last element
-
-            E temp = tail.element; // Store the element to return when done
-            tail = current; // Make the tail the second to last element
-            tail.next = null; // Remove the link to the old tail, no need to remove the old tail's previous
-            size--; // 
+            Node<E> current = tail.previous; 
+            
+            E temp = tail.element;
+            tail = current;
+            tail.next = null;
+            size--;
             return temp;
         }
     }
 
+    //remove a ceratin index spot
     @Override
     public E remove(int index) {
-        // When the index is not in the list
         if (index < 0 || index >= size)
             return null;
         
-        else if (index == 0) { // When the index is the head
+        else if (index == 0) { 
             return removeFirst();
         }
         
-        else if (index == size - 1) { // When the index is the tail
+        else if (index == size - 1) { 
             return removeLast();
         }
         else {
             int fromTail = size - 1 - index;
             if (fromTail < index) {
-                Node<E> current = tail; // Set a pointer to tail
+                Node<E> current = tail; 
                 
                 for (int i = size - 1; i > index; i--)
-                    current = current.previous; // Move the pointer to the previous node
+                    current = current.previous; 
                 
-                Node<E> previous = current.previous; // Set a second pointer to aid visualization
-                previous.next = current.next; // Set previous' next to current's next
-                current.next.previous = previous; // Set current's next's previous to 'previous'
-                size--; // Lower the size
-                return current.element; // Return the removed element
+                Node<E> previous = current.previous;
+                previous.next = current.next; 
+                current.next.previous = previous; 
+                size--; 
+                return current.element; 
             }
             else {
-                Node<E> previous = head; // Set a pointer to head
+                Node<E> previous = head; 
 
                 for (int i = 1; i < index; i++)
-                    previous = previous.next; // Move the pointer to the next node
+                    previous = previous.next; 
 
-                Node<E> current = previous.next; // Set a second pointer to aid visualization
-                previous.next = current.next; // Set previous' next to the node following current
-                current.next.previous = previous; // Set the new next's previous to 'previous'
-                size--; // Lower the size
-                return current.element; // Return the removed element
+                Node<E> current = previous.next; 
+                previous.next = current.next; 
+                current.next.previous = previous; 
+                size--; 
+                return current.element; 
             }
         }
     }
 
+    //toString
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("[");
@@ -223,23 +231,24 @@ public class DoublyLinkedList<E> implements MyList<E>{
             result.append(current.element);
             current = current.next;
             if (current != null)
-                result.append(", "); // Separate two elements with a comma
+                result.append(", "); 
             else
-                result.append("]"); // Insert the closing ] in the string
+                result.append("]"); 
         }
 
         return result.toString();
     }
 
+    //clears the DLL
     @Override
     public void clear() {
         size = 0;
         head = tail = null;
     }
 
+    //Checks if an object is within the DLL
     @Override
     public boolean contains(Object elem) {
-        // Left as an exercise 
         Node<E> current = head;
         while(current != tail){
             if(current.element.equals(elem))
@@ -249,25 +258,27 @@ public class DoublyLinkedList<E> implements MyList<E>{
         return tail.element == elem;
     }
 
+    //Checks what spot a certain element is in
     @Override
     public int indexOf(Object elem) {
-        Node<E> current = head; // Declare local variable for head Node.
-        for (int i = 0; i < size; i++) // For-loop to iterate until i is equal to the size.
+        Node<E> current = head; 
+        for (int i = 0; i < size; i++) 
             if(elem.equals(current.element))
-                return i; // Return current index
+                return i; 
             else
-                current = current.next; // Set next node
-        return -1; // The item is not in the list
+                current = current.next;
+        return -1; 
     }
 
+    //checks what the last index is
     @Override
     public int lastIndexOf(E elem) {
-        int result = size-1;// Declare local variable for a result to be returned.
+        int result = size-1;
         
-        Node<E> current = tail; // Create pointer to cycle through the list
+        Node<E> current = tail; 
                 
-        while (!elem.equals(current.element)){ // Traverse in backwards manner until index of element is matched.
-            current = current.previous; // Move the pointer to the previous node
+        while (!elem.equals(current.element)){ 
+            current = current.previous; 
             if (--result == -1)
                 return result;
         }
@@ -275,6 +286,7 @@ public class DoublyLinkedList<E> implements MyList<E>{
         return result;
     } 
 
+    //returns size of DLL
     @Override
     public int size() {
         return size;
@@ -290,19 +302,19 @@ public class DoublyLinkedList<E> implements MyList<E>{
         }
     }
 
+    //sets a certain index to a certain element
     @Override
     public Object set(int index, Object elem) {
-        // When the index is not in the list
         if (index < 0 || index >= size)
             return null;
         
-        else if (index == 0) { // When the index is the head
+        else if (index == 0) {
             E old = head.element;
             head.element = (E) elem;
             return old;
         }
         
-        else if (index == size - 1) { // When the index is the tail
+        else if (index == size - 1) { 
             E old = tail.element;
             tail.element = (E) elem;
             return old;
@@ -313,21 +325,22 @@ public class DoublyLinkedList<E> implements MyList<E>{
             Node<E> current;
             E old;
             if (fromTail < index) {
-                current = tail; // Set pointer to cycle through the list
+                current = tail; 
                 for (int i = size - 1; i > index; i--)
                     current = current.previous; // Move back one element
             }
             else {
-                current = head; // Set pointer to cycle through the list
+                current = head;
                 for (int i = 0; i < index; i++)
-                    current = current.next; // Move forward one element
+                    current = current.next; 
             }
             old = current.element;
-            current.element = (E) elem; // Set the element equal to the argument elem
+            current.element = (E) elem; 
             return old;
         }
     }
 
+    //iterator
     @Override
     public Iterator<E> iterator() {
         return new LinkedListIterator();
@@ -350,7 +363,6 @@ public class DoublyLinkedList<E> implements MyList<E>{
 
         @Override
         public void remove() {
-          // Left as an exercise
           if(size != 0){
             Node<E> preCur = head;
             Node<E> prePreCur = null;
@@ -384,4 +396,5 @@ public class DoublyLinkedList<E> implements MyList<E>{
         }
         return itr;
     }
+
 }
