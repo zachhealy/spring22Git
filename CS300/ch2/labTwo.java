@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /*
-* Author: Zach Healy
+* Author: Zach Healy, Noah Little, John Stout, Trinity Smallwood, Jalik Smith, and Jacob Thieret
 */
 
 public class labTwo {

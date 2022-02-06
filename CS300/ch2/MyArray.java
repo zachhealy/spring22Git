@@ -3,6 +3,7 @@ package CS300.ch2;
 /**
  *
  * @author ziping
+ * edited by: Zach Healy, Noah Little, John Stout, Trinity Smallwood, Jalik Smith, and Jacob Thieret
  */
 public class MyArray<T extends Comparable<T>> {
     private T[] arr;
