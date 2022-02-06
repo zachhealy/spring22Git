@@ -24,17 +24,17 @@ public class MyArray<T extends Comparable<T>> {
     }
     
     public void Insert(T item, int index){
-	if (size + 1 > CAPACITY) 
-            throw new ArrayIndexOutOfBoundsException();
-	else if (index > size)
-            throw new ArrayIndexOutOfBoundsException();
-	else{
-            for (int i = size; i > index + 1;  i--)
-		arr[i] = arr[i-1];
-		
-            arr[index] = item;
-            size++;
-	}
+        if (size + 1 > CAPACITY) 
+                throw new ArrayIndexOutOfBoundsException();
+        else if (index > size)
+                throw new ArrayIndexOutOfBoundsException();
+        else{
+                for (int i = size; i > index + 1;  i--)
+            arr[i] = arr[i-1];
+            
+                arr[index] = item;
+                size++;
+        }
     }	
     
     public void Delete(int index){
@@ -63,20 +63,20 @@ public class MyArray<T extends Comparable<T>> {
 	}        
     }
     
-    public void SelectionSort(){
-	int best;
-	for (int i = 0; i < size-1;  i++){
+    public void SelectionSort() {
+        int best;
+        for (int i = 0; i < size - 1; i++) {
             best = i;
-            for (int j = i+1;  j < size;  j++)
-		if (arr[best].compareTo(arr[j]) > 0)
+            for (int j = i + 1; j < size; j++)
+                if (arr[best].compareTo(arr[j]) > 0)
                     best = j;
-				
-            if (i != best){//swap the two items
+
+            if (i != best) {// swap the two items
                 T temp = arr[i];
                 arr[i] = arr[best];
                 arr[best] = temp;
             }
-	}        
+        }
     }
     
     public void InsertionSort(){
@@ -189,15 +189,16 @@ public class MyArray<T extends Comparable<T>> {
 
 //New code for cLab2
 
+    //Number 1
     public void dSelSort(){
         int max, min;
-        for (int i = 0, j = size - 1; i < j; i++, j--){
+        for (int i = 0, j = size; i < j; i++){
             max = i;
             min = j;
 
             for(int p = 0; p < j; p++){
-                if (arr[max].compareTo(arr[j]) > 0){
-                    max = j;
+                if (arr[max].compareTo(arr[p]) > 0){
+                    max = p;
                 }
                 if(i != max){
                     T temp = arr[i];
@@ -205,23 +206,19 @@ public class MyArray<T extends Comparable<T>> {
                     arr[max] = temp;
 
                 }
-            }
-            for(int p = size; p > 0; p--){
-                if (arr[min].compareTo(arr[i]) > 0){
-                    min = i;
-
-                }
                 if(j != min){
-                    T temp = arr[i];
-                    arr[i] = arr[max];
-                    arr[max] = temp;
+                    T temp = arr[j];
+                    arr[j] = arr[min];
+                    arr[min] = temp;
 
                 }
-
             }
+            
+            
         }
     }
 
+    //Number 2
     public void newQuicksort(int first, int last){
         int middle = (first + last)/2;
         int med = (first + last + middle)/3;
@@ -232,5 +229,9 @@ public class MyArray<T extends Comparable<T>> {
 	    }
     }
     
+    //Number 3
+    //In Main
 
+    
+    //Number 4
 }
