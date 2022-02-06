@@ -221,6 +221,16 @@ public class MyArray<T extends Comparable<T>> {
             }
         }
     }
+
+    public void newQuicksort(int first, int last){
+        int middle = (first + last)/2;
+        int med = (first + last + middle)/3;
+	    if (med < last){
+            int pivotIndex = Split(first, last);
+            newQuicksort(first, pivotIndex - 1);
+            newQuicksort(pivotIndex + 1, last);
+	    }
+    }
     
 
 }
