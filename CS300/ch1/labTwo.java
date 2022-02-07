@@ -1,7 +1,9 @@
-package CS300.ch2;
+package CS300.ch1;
 
 import java.util.Arrays;
 import java.util.Stack;
+
+import CS300.ch2.MyArray;
 
 /*
 * Author: Zach Healy, Noah Little, John Stout, Trinity Smallwood, Jalik Smith, and Jacob Thieret
