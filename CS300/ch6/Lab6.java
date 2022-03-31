@@ -1,3 +1,5 @@
+package CS300.ch6;
+
 import java.util.*;
 import java.io.*;
 public class Lab6 {

@@ -1,4 +1,4 @@
-package CS300.Lab06;
+package CS300.ch6;
 import java.util.*;
 public class WebCrawler {
     public static void main(String[] args) {

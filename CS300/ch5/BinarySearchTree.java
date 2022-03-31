@@ -1,4 +1,4 @@
-package CS300.Lab05;
+package CS300.ch5;
 import java.util.*;
 import java.io.*;
 

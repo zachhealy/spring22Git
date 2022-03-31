@@ -1,4 +1,4 @@
-
+package CS300.ch3;
 
 /**
  * @author John Stout

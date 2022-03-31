@@ -1,3 +1,5 @@
+package CS300.ch4;
+
 /*
 Members: Zach Healy, Jack Stout, Noah Little, Jacob Thieret, Jalik Smith, Trinity Smallwood
 */
