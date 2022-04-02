@@ -1,5 +1,10 @@
 package CS300.ch7;
 
+/*
+* Group Members: Zach Healy, John Stout, Noah Little, Jacob Thieret,
+* Justin Kehoe, Trinity Smallwood, and Jalik Smith.
+*/
+
 import java.util.*;
 
 public class Ex26_2 {
