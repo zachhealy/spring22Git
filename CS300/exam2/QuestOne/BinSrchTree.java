@@ -1,6 +1,8 @@
-package CS300.exam2;
+package CS300.exam2.QuestOne;
 
 import java.util.Queue;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.LinkedList;
 
 /**
@@ -8,9 +10,9 @@ import java.util.LinkedList;
  * @author ziping
  */
 public class BinSrchTree<T extends Comparable<T>> {
-    private static class BinNode<T> {
-        private T data;
-        private BinNode<T> left, right;
+    public static class BinNode<T> {
+        public T data;
+        public BinNode<T> left, right;
 
         public BinNode() {
             left = null;
@@ -24,7 +26,7 @@ public class BinSrchTree<T extends Comparable<T>> {
         }
     }
 
-    private BinNode<T> root;
+    BinNode<T> root;
 
     public BinSrchTree() {
         root = null;
@@ -265,4 +267,24 @@ public class BinSrchTree<T extends Comparable<T>> {
             }
         }
     }
+
+    // NEW CODE FOR EXAM
+    public void sorting(BinNode<T> root, T item, SortedSet<T> set) {
+        if (root == null) {
+            return;
+        }
+        int temp = root.data.compareTo(item);
+        if (temp >= 0) {
+            set.add(root.data);
+            sorting(root.left, item, set);
+        }
+        sorting(root.right, item, set);
+    }
+
+    public SortedSet<T> GreaterThanSet(BinSrchTree<T> b, T item) {
+        SortedSet<T> sortedSet = new TreeSet<>();
+        sorting(b.root, item, sortedSet);
+        return sortedSet;
+    }
+
 }
