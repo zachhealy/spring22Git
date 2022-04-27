@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "jsoup-1.14.3.jar",
+        "jsoup-1.14.3-sources.jar",
+        "jsoup-1.14.3-javadoc.jar"
+    ]
+}
